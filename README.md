@@ -6,12 +6,11 @@ Backend en Strapi v5, frontend en React.
 
 ## Schéma relationnel
 
-User
-  - Livre (1-N)
-      - Auteur (optionnel, 1-1)
-     - Collection (plusieurs possibles, N-N)
-  - Auteur (1-N)
-  - Collection (1-N)
+User - Livre (1-N)
+Livre - Auteur (1-1)
+Livre - Collection (N-N)
+User - Auteur (1-N)
+User - Collection (1-N)
 
 Modèles :
 
@@ -69,15 +68,15 @@ Les valeurs `...` sont à remplacer ; Strapi en génère au premier `npm run dev
 
 ## Choix techniques
 
-J'ai pris Strapi v5 parce que la consigne impose un CMS headless et que les routes REST sont générées automatiquement à partir des content-types, ce qui me permettait de me concentrer sur la logique métier (rattachement utilisateur, suppression en cascade de l'auteur).
+## Choix techniques
 
-Côté front, React parce que je le connais le mieux. Pas de router : un seul `useState` dans `App.js` suffit pour 5 pages, ça évite une dépendance pour pas grand-chose. Pas de librairie HTTP non plus : `fetch` enveloppé dans un helper `request` dans `services/api.js` fait le travail (gestion des erreurs réseau et 4xx/5xx au même endroit).
+J'ai choisi Strapi car c'était demandé dans la consigne et je l'avais déjà utilisé une fois. Ça génère les routes automatiquement ce qui m'a évité de tout coder à la main. J'ai quand même eu des difficultés avec les permissions au début, les relations entre les modèles aussi, mais j'ai réussi à faire fonctionner tout ça.
 
-Stockage du JWT dans `localStorage`. C'est ce que Strapi renvoie après `/auth/local`, et ça survit au refresh.
+Pour le front j'ai utilisé React parce que c'est ce que je connais le mieux. J'ai pas utilisé de router car avec seulement 5 pages c'était pas nécessaire. Pour les appels API j'ai tout mis dans un fichier séparé pour pas répéter le même code dans chaque composant. J'ai aussi créé un hook `useNotification` partagé entre les pages pour éviter de répéter la logique des toasts de succès et d'erreur.
 
-SQLite pour la base, parce que le projet est local et que ça évite d'installer un serveur Postgres pour un rendu.
+Le JWT est stocké dans le localStorage et j'ai utilisé SQLite car le projet tourne en local.
 
-Styles inline dans les composants. Ça reste lisible pour un projet de cette taille et ça évite de jongler avec des fichiers CSS.
+J'ai aussi appris que sans `populate` Strapi renvoie seulement les IDs et pas les données complètes, ce qui cassait l'affichage.
 
 ## Guide utilisateur
 
