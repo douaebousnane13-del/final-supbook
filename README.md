@@ -6,6 +6,7 @@ Backend en Strapi v5, frontend en React.
 
 ## Schéma relationnel
 
+
 Un utilisateur peut avoir plusieurs livres, plusieurs auteurs et plusieurs collections.
 Chaque livre peut avoir un auteur (optionnel) et appartenir à plusieurs collections.
 
@@ -14,6 +15,9 @@ Livre → Auteur (1-1, optionnel)
 Livre → Collection (N-N)
 User → Auteur (1-N)
 User → Collection (1-N)
+
+
+
 
 Modèles :
 
@@ -72,6 +76,7 @@ Les valeurs `...` sont à remplacer ; Strapi en génère au premier `npm run dev
 
 ## Choix techniques
 
+
 J'ai choisi Strapi v5 parce que la consigne l'imposait, mais aussi parce que je l'avais déjà un peu utilisé. Le fait que les routes REST soient générées automatiquement m'a permis de me concentrer sur ce qui sortait pas de Strapi par défaut : rattacher chaque ressource à son utilisateur, filtrer les données selon l'utilisateur connecté, et gérer proprement la suppression en cascade quand on supprime un auteur.
 
 J'ai aussi ajouté un bootstrap dans `src/index.js` parce qu'à chaque fois que je relançais Strapi je devais retourner dans l'admin reconfigurer les permissions à la main. C'était répétitif donc j'ai cherché une solution — le bootstrap s'exécute au démarrage et active automatiquement les droits pour le rôle `Authenticated` sur les trois content-types.
@@ -83,6 +88,8 @@ Le JWT est stocké dans le localStorage parce que c'est ce que Strapi renvoie ap
 J'ai utilisé SQLite pour la base de données parce que le projet tourne en local et que ça évitait d'avoir à installer et configurer un serveur Postgres juste pour un rendu.
 
 Pour le style j'ai gardé du CSS inline directement dans les composants. Pour un projet de cette taille ça reste lisible et ça évite de jongler entre les fichiers JS et des fichiers CSS séparés.
+
+
 
 ## Guide utilisateur
 
