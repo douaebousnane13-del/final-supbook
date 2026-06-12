@@ -20,7 +20,7 @@ function App() {
       localStorage.removeItem("token");
        localStorage.removeItem("userId");
     }
-     setPage(nouvellePage);
+  setPage(nouvellePage);
   }
 
  

@@ -6,7 +6,7 @@ import { inscrire } from "../services/api";
 
 function Inscription({ allerVers }) {
   const [nom, setNom] = useState("");
-  const [email, setEmail] = useState("");
+   const [email, setEmail] = useState("");
   const [motDePasse, setMotDePasse] = useState("");
   const [erreur, setErreur] = useState("");
   const [succes, setSucces] = useState(false);

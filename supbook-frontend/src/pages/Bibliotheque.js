@@ -75,7 +75,7 @@ function Bibliotheque({ allerVers }) {
       description,
       couverture,
        statut,
-      note: note ? parseInt(note) : null,
+       note: note ? parseInt(note) : null,
       avis,
       auteur: auteurSelectionne || null,
       collections: collectionsSelectionnees,
@@ -105,7 +105,7 @@ function Bibliotheque({ allerVers }) {
   }
 
  async function handleSupprimerLivre(documentId) {
-  if (!window.confirm("Êtes-vous sûr de vouloir supprimer ce livre ?")) return;
+if (!window.confirm("Êtes-vous sûr de vouloir supprimer ce livre ?")) return;
   const data = await supprimerLivre(documentId);
   if (data.erreur) {
     afficherErreur("Impossible de supprimer le livre");
@@ -144,7 +144,7 @@ function Bibliotheque({ allerVers }) {
  e.preventDefault();
       const data = await modifierLivre(editingBook.documentId, {
      titre: titreEdit,
-      description: descriptionEdit,
+         description: descriptionEdit,
       couverture: couvertureEdit,
       statut: statutEdit,
       note: noteEdit ? parseInt(noteEdit) : null,
