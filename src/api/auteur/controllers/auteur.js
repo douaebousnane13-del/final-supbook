@@ -40,10 +40,16 @@ const auteur = await strapi.documents('api::auteur.auteur').findOne({
       // si on supprime diret ca casse les relations sur les livres
     // donc on remet auteur à null avant
       
-    await strapi.db.query('api::livre.livre').updateMany({
-      where: { auteur: { documentId: auteur.documentId } },
-      data: { auteur: null },
-    });
+  const livresLies = await strapi.documents('api::livre.livre').findMany({
+  filters: { auteur: { documentId: auteur.documentId } },
+});
+
+for (const livre of livresLies) {
+  await strapi.documents('api::livre.livre').update({
+    documentId: livre.documentId,
+    data: { auteur: null },
+  });
+}
 
     return await super.delete(ctx);
   },

@@ -22,7 +22,8 @@ if (options.body) headers["Content-Type"] = "application/json";
 
       if (!response.ok) {
       return { erreur: options.messageErreur || "Une erreur est survenue" };
-    }
+       }
+       if (response.status === 204) return {}; 
       return await response.json();
   } catch (err) {
     return { erreur: "Serveur inaccessible, réessaye plus tard" };

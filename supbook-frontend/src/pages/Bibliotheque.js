@@ -100,19 +100,20 @@ function Bibliotheque({ allerVers }) {
     } else {
      
       afficherErreur("Erreur lors de l'ajout du livre");
-      setTimeout(() => afficherErreur(""), 3000);
+     
     }
   }
 
-  
-  async function handleSupprimerLivre(documentId) {
-    
-    if (!window.confirm("Êtes-vous sûr de vouloir supprimer ce livre ?")) return;
-    await supprimerLivre(documentId);
-   afficherSucces("Livre supprimé !");
+ async function handleSupprimerLivre(documentId) {
+  if (!window.confirm("Êtes-vous sûr de vouloir supprimer ce livre ?")) return;
+  const data = await supprimerLivre(documentId);
+  if (data.erreur) {
+    afficherErreur("Impossible de supprimer le livre");
+  } else {
+    afficherSucces("Livre supprimé !");
     chargerLivres();
-   
   }
+}
 
    
   async function handleRetirerCollection(livreDocumentId, nouvellesCollections) {
@@ -160,7 +161,7 @@ function Bibliotheque({ allerVers }) {
       
     } else {
       afficherErreur("Erreur lors de la modification");
-      setTimeout(() => afficherErreur(""), 3000);
+    
     }
   }
 

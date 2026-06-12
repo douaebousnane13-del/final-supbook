@@ -54,12 +54,16 @@ async function handleSubmit(e) {
 
   
   
-  async function handleSupprimer(documentId) {
-      if (!window.confirm("Supprimer cet auteur ?")) return;
-    await supprimerAuteur(documentId);
+ async function handleSupprimer(documentId) {
+  if (!window.confirm("Supprimer cet auteur ?")) return;
+  const data = await supprimerAuteur(documentId);
+  if (data.erreur) {
+    afficherErreur("Impossible de supprimer l'auteur");
+  } else {
     afficherSucces("Auteur supprimé");
     chargerAuteurs();
   }
+}
 
 
   const btnStyle = (primary) => ({
