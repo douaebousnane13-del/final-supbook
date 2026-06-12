@@ -52,8 +52,8 @@ const auteur = await strapi.documents('api::auteur.auteur').findOne({
     }
 
 
-      // si on supprime diret ca casse les relations sur les livres
-    // donc on remet auteur à null avant
+      // si on supprime diret ca case les relations sur les livres
+    // donc on remet auteur a null avant
       
    const livresLies = await strapi.documents('api::livre.livre').findMany({
   filters: { auteur: { documentId: auteur.documentId } },
