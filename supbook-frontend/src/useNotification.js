@@ -2,7 +2,7 @@ import { useState } from "react";
 
 function useNotification() {
       const [succes, setSucces] = useState("");
-  const [erreur, setErreur] = useState("");
+    const [erreur, setErreur] = useState("");
 
   function afficherSucces(msg) {
        setSucces(msg);
@@ -11,10 +11,10 @@ function useNotification() {
 
   function afficherErreur(msg) {
 setErreur(msg);
-    setTimeout(() => setErreur(""), 3000);
+      setTimeout(() => setErreur(""), 3000);
   }
-
-       return { succes, erreur, afficherSucces, afficherErreur };
+    
+            return { succes, erreur, afficherSucces, afficherErreur };
 }
 
 export default useNotification;

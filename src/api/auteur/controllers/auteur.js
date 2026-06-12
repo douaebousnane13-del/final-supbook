@@ -9,7 +9,8 @@ module.exports = createCoreController('api::auteur.auteur', ({ strapi }) => ({
   const auteurs = await strapi.documents('api::auteur.auteur').findMany({
     filters: { users_permissions_user: { id: ctx.state.user.id } },
     });
-      return { data: auteurs, meta: { pagination: { total: auteurs.length } } };
+     
+    return { data: auteurs, meta: { pagination: { total: auteurs.length } } };
   },
 
   async create(ctx) {
@@ -22,17 +23,19 @@ module.exports = createCoreController('api::auteur.auteur', ({ strapi }) => ({
     }
     return result;
   },
+
+
   async update(ctx) {
   const userId = ctx.state.user.id;
   const auteur = await strapi.documents('api::auteur.auteur').findOne({
-    documentId: ctx.params.id,
-    populate: ['users_permissions_user'],
+       documentId: ctx.params.id,
+  populate: ['users_permissions_user'],
   });
   if (!auteur) return ctx.notFound();
   if (auteur.users_permissions_user?.id !== userId) {
-    return ctx.forbidden("Action non autorisée");
+       return ctx.forbidden("Action non autorisée");
   }
-  return await super.update(ctx);
+           return await super.update(ctx);
 },
 
 async delete(ctx) {
