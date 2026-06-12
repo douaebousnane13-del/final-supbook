@@ -5,7 +5,7 @@ import { connecter } from "../services/api";
 function Connexion({ allerVers }) {
   const [email, setEmail] = useState("");
   const [motDePasse, setMotDePasse] = useState("");
-  const [erreur, setErreur] = useState("");
+   const [erreur, setErreur] = useState("");
   const [chargement, setChargement] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 

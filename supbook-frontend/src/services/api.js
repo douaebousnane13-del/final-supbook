@@ -12,8 +12,10 @@ if (options.body) headers["Content-Type"] = "application/json";
     const token = getToken();
     if (token) headers["Authorization"] = "Bearer " + token;
 
+    
+    
     try {
-  const response = await fetch(API_URL + path, {
+     const response = await fetch(API_URL + path, {
        method: options.method || "GET",
     headers,
       body: options.body ? JSON.stringify(options.body) : undefined,
@@ -33,7 +35,7 @@ if (options.body) headers["Content-Type"] = "application/json";
    
 function inscrire(nom, email, motDePasse) {
      return request("/auth/local/register", {
-    method: "POST",
+        method: "POST",
     body: { username: nom, email, password: motDePasse },
     messageErreur: "Erreur lors de l'inscription",
   });
@@ -41,8 +43,9 @@ function inscrire(nom, email, motDePasse) {
 
   
 function connecter(email, motDePasse) {
-    return request("/auth/local", {
-    method: "POST",
+    
+  return request("/auth/local", {
+      method: "POST",
     body: { identifier: email, password: motDePasse },
     messageErreur: "Email ou mot de passe incorrect",
   });
@@ -66,7 +69,7 @@ body: { data: livre },
 
 function modifierLivre(documentId, donnees) {
   return request("/livres/" + documentId, {
-    method: "PUT",
+     method: "PUT",
     body: { data: donnees },
     messageErreur: "Impossible de modifier le livre",
   });

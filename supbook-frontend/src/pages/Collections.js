@@ -49,11 +49,15 @@ async function handleAjouterCollection(e) {
   }
 
   async function handleSupprimerCollection(documentId) {
-    if (!window.confirm("Êtes-vous sûr de vouloir supprimer cette collection ?")) return;
-    await supprimerCollection(documentId);
+  if (!window.confirm("Êtes-vous sûr de vouloir supprimer cette collection ?")) return;
+  const data = await supprimerCollection(documentId);
+  if (data.erreur) {
+    afficherErreur("Impossible de supprimer la collection");
+  } else {
     afficherSucces("Collection supprimée !");
     chargerCollections();
   }
+}
 
   const btnStyle = (primary) => ({
     fontFamily: SERIF,

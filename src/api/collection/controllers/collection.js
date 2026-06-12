@@ -7,7 +7,7 @@ module.exports = createCoreController('api::collection.collection', ({ strapi })
 
   async find(ctx) {
     
-    const collections = await strapi.documents('api::collection.collection').findMany({
+   const collections = await strapi.documents('api::collection.collection').findMany({
       filters: { users_permissions_user: { id: ctx.state.user.id } },
     });
    
@@ -21,7 +21,7 @@ module.exports = createCoreController('api::collection.collection', ({ strapi })
        if (result?.data?.documentId) {
      
      await strapi.documents('api::collection.collection').update({
-       documentId: result.data.documentId,
+         documentId: result.data.documentId,
        data: { users_permissions_user: ctx.state.user.id },
       });
     }
@@ -47,16 +47,16 @@ module.exports = createCoreController('api::collection.collection', ({ strapi })
   async update(ctx) {
     const userId = ctx.state.user.id;
     const collection = await strapi.documents('api::collection.collection').findOne({
-       documentId: ctx.params.id,
+         documentId: ctx.params.id,
        populate: ['users_permissions_user'],
     });
 
      if (!collection) return ctx.notFound();
      if (collection.users_permissions_user?.id !== userId) {
-       return ctx.forbidden("Action non autorisée");
+         return ctx.forbidden("Action non autorisée");
     }
 
-    return await super.update(ctx);
+       return await super.update(ctx);
   },
 
 }));

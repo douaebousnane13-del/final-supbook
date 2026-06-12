@@ -4,14 +4,14 @@ const { createCoreController } = require('@strapi/strapi').factories;
 
 
 async function checkOwner(strapi, documentId, userId) {
-    const livre = await strapi.documents('api::livre.livre').findOne({
-     
+         const livre = await strapi.documents('api::livre.livre').findOne({
+        
       documentId,
      
-     populate: ['users_permissions_user'],
+         populate: ['users_permissions_user'],
   });
   if (!livre) return false;
-  return livre.users_permissions_user?.id === userId;
+     return livre.users_permissions_user?.id === userId;
 }
 
 module.exports = createCoreController('api::livre.livre', ({ strapi }) => ({
@@ -35,7 +35,7 @@ module.exports = createCoreController('api::livre.livre', ({ strapi }) => ({
     
     // on rattache l'user après la création parce que je trouvais pas
     // comment l'injecter avant via le ctx.request.body, c'est moche mais ça marche
-    
+
     if (result?.data?.documentId) {
       
       await strapi.documents('api::livre.livre').update({
@@ -53,8 +53,8 @@ module.exports = createCoreController('api::livre.livre', ({ strapi }) => ({
   
   async update(ctx) {
    
-    const ok = await checkOwner(strapi, ctx.params.id, ctx.state.user.id);
-    if (!ok) return ctx.forbidden("Action non autorisée");
+       const ok = await checkOwner(strapi, ctx.params.id, ctx.state.user.id);
+         if (!ok) return ctx.forbidden("Action non autorisée");
     
     return await super.update(ctx);
   },
@@ -64,7 +64,7 @@ module.exports = createCoreController('api::livre.livre', ({ strapi }) => ({
     const ok = await checkOwner(strapi, ctx.params.id, ctx.state.user.id);
    
     
-    if (!ok) return ctx.forbidden("Action non autorisée");
+       if (!ok) return ctx.forbidden("Action non autorisée");
     
     return await super.delete(ctx);
   },

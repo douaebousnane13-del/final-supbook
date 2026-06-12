@@ -9,8 +9,8 @@ import Collections from "./pages/Collections";
 
 
 function App() {
-  const [page, setPage] = useState(
-    localStorage.getItem("token") ? "bibliotheque" : "connexion"
+      const [page, setPage] = useState(
+       localStorage.getItem("token") ? "bibliotheque" : "connexion"
   );
 
  
@@ -25,11 +25,11 @@ function App() {
 
  
   if (page === "inscription") {
-   return <Inscription allerVers={allerVers} />;
+    return <Inscription allerVers={allerVers} />;
   }
 
     if (page === "auteurs" && localStorage.getItem("token")) {
-  return <Auteurs allerVers={allerVers} />;
+return <Auteurs allerVers={allerVers} />;
   }
 
   if (page === "collections" && localStorage.getItem("token")) {
@@ -41,7 +41,7 @@ return <Bibliotheque allerVers={allerVers} />;
   }
 
   
-   return <Connexion allerVers={allerVers} />;
+  return <Connexion allerVers={allerVers} />;
 }
 
 export default App;
