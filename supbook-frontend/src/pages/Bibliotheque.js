@@ -174,7 +174,7 @@ if (!window.confirm("Êtes-vous sûr de vouloir supprimer ce livre ?")) return;
 
   
   
-  // applique tous les filtres le tri d'un coup (recherche, statut, auteur, collection)
+  
   // todo: voir si je peux faire ça coté API avec les filters Strapi plus efficace et bien 
 
 
