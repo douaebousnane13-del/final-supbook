@@ -58,7 +58,7 @@ function getLivres() {
   );
 }
 
-function ajouterLivre(livre) {
+   function ajouterLivre(livre) {
      return request("/livres", {
    method: "POST",
 body: { data: livre },
@@ -76,9 +76,9 @@ function modifierLivre(documentId, donnees) {
 }
 
    
-   function supprimerLivre(documentId) {
+     function supprimerLivre(documentId) {
   return request("/livres/" + documentId, {
-    method: "DELETE",
+     method: "DELETE",
     messageErreur: "Impossible de supprimer le livre",
   });
 }
@@ -93,12 +93,12 @@ function getAuteurs() {
 
 function ajouterAuteur(nom, prenom) {
   return request("/auteurs", {
-    method: "POST",
+      method: "POST",
     body: { data: { nom, prenom } },
   });
 }
 
-function supprimerAuteur(documentId) {
+ function supprimerAuteur(documentId) {
   return request("/auteurs/" + documentId, { method: "DELETE" });
 }
 
@@ -113,7 +113,7 @@ function ajouterCollection(nom) {
   });
 }
 
-function supprimerCollection(documentId) {
+  function supprimerCollection(documentId) {
   return request("/collections/" + documentId, { method: "DELETE" });
 }
 

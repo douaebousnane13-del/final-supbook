@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700&display=swap');
 * {
   box-sizing: border-box;
-  margin: 0;
+   margin: 0;
   padding: 0;
 }
 
@@ -19,7 +19,7 @@ h1, h2, h3 {
 button {
   cursor: pointer;
   border: none;
-  border-radius: 8px;
+    border-radius: 8px;
   font-size: 14px;
   font-weight: 600;
   transition: all 0.2s;
@@ -40,7 +40,7 @@ input, textarea, select {
   margin-top: 6px;
   outline: none;
   background: white;
-  transition: border-color 0.2s;
+    transition: border-color 0.2s;
   font-family: inherit;
 }
 
@@ -52,7 +52,7 @@ input:focus, textarea:focus, select:focus {
 label {
   font-size: 14px;
   font-weight: 600;
-  color: #555;
+   color: #555;
   display: block;
   margin-top: 12px;
 }

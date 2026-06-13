@@ -38,7 +38,7 @@ function Auteurs({ allerVers }) {
   
   
   
-async function handleSubmit(e) {
+ async function handleSubmit(e) {
    e.preventDefault();
        const data = await ajouterAuteur(nom, prenom);
       if (data.data) {
@@ -130,7 +130,7 @@ async function handleSubmit(e) {
           <div>
             <h2 style={{ fontSize: "28px", fontWeight: "800", color: "#1a1a2e", fontFamily: SERIF, marginBottom: "6px" }}>Auteurs</h2>
             <p style={{ fontFamily: SERIF, fontSize: "13px", color: "#9ca3af" }}>{auteurs.length} auteur{auteurs.length !== 1 ? "s" : ""}</p>
-          </div>
+           </div>
           <button onClick={() => setAfficherFormulaire(!afficherFormulaire)} style={{ ...btnStyle(true), padding: "10px 22px", width: isMobile ? "100%" : "auto" }}>
             {afficherFormulaire ? "Annuler" : "+ Ajouter un auteur"}
           </button>
@@ -195,7 +195,7 @@ async function handleSubmit(e) {
               >
                 Supprimer
               </button>
-       </div>
+        </div>
           ))}
         </div>
       </div>

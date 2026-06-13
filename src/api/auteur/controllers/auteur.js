@@ -26,14 +26,15 @@ module.exports = createCoreController('api::auteur.auteur', ({ strapi }) => ({
 
 
   async update(ctx) {
-  const userId = ctx.state.user.id;
+   const userId = ctx.state.user.id;
   const auteur = await strapi.documents('api::auteur.auteur').findOne({
        documentId: ctx.params.id,
   populate: ['users_permissions_user'],
   });
   if (!auteur) return ctx.notFound();
   if (auteur.users_permissions_user?.id !== userId) {
-       return ctx.forbidden("Action non autorisée");
+    return ctx.forbidden("pas autorisé");
+       
   }
            return await super.update(ctx);
 },

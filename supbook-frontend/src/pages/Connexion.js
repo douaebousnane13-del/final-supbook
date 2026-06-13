@@ -11,7 +11,7 @@ function Connexion({ allerVers }) {
 
  
   useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 768);
+      const handleResize = () => setIsMobile(window.innerWidth < 768);
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -45,7 +45,7 @@ function Connexion({ allerVers }) {
    
   return (
       
-      <div style={{ minHeight: "100vh", background: "#f9f6f2", display: "flex", alignItems: "center", justifyContent: "center", padding: isMobile ? "16px" : "0" }}>
+        <div style={{ minHeight: "100vh", background: "#f9f6f2", display: "flex", alignItems: "center", justifyContent: "center", padding: isMobile ? "16px" : "0" }}>
       <div style={{ background: "white", padding: isMobile ? "28px 20px" : "48px", borderRadius: "12px", border: "1px solid #e5e7eb", boxShadow: "0 2px 12px rgba(0,0,0,0.06)", width: "100%", maxWidth: "420px" }}>
         
         <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: "28px", fontWeight: "800", color: "#1a1a2e", marginBottom: "8px", textAlign: "center" }}>SupBook</h1>
@@ -87,7 +87,7 @@ function Connexion({ allerVers }) {
           </div>
           <button
             type="submit"
-            disabled={chargement}
+              disabled={chargement}
             style={{ width: "100%", background: "#1a1a2e", color: "white", padding: "12px", borderRadius: "8px", fontWeight: "700", fontSize: "15px", cursor: "pointer", border: "none" }}
           >
             {chargement ? "Connexion..." : "Se connecter"}
@@ -105,7 +105,7 @@ function Connexion({ allerVers }) {
             S'inscrire
           </span>
         </p>
-      </div>
+       </div>
     </div>
   );
 }

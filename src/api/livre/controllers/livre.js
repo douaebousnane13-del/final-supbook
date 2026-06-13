@@ -10,7 +10,8 @@ async function checkOwner(strapi, documentId, userId) {
      
          populate: ['users_permissions_user'],
   });
-  if (!livre) return false;
+  if (!livre) return false;      
+  
      return livre.users_permissions_user?.id === userId;
 }
 
@@ -47,13 +48,14 @@ module.exports = createCoreController('api::livre.livre', ({ strapi }) => ({
       });
     }
    
-    return result;
+          return result;
   },
 
   
   async update(ctx) {
    
        const ok = await checkOwner(strapi, ctx.params.id, ctx.state.user.id);
+
          if (!ok) return ctx.forbidden("Action non autorisée");
     
     return await super.update(ctx);

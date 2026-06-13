@@ -5,8 +5,8 @@ import useNotification from "../useNotification";
 const SERIF = "'Playfair Display', serif";
 
 function Bibliotheque({ allerVers }) {
-  const [livres, setLivres] = useState([]);
-  const [chargement, setChargement] = useState(true);
+   const [livres, setLivres] = useState([]);
+   const [chargement, setChargement] = useState(true);
   const [afficherFormulaire, setAfficherFormulaire] = useState(false);
   const [recherche, setRecherche] = useState("");
   const [filtreStatut, setFiltreStatut] = useState("tous");
@@ -89,7 +89,7 @@ function Bibliotheque({ allerVers }) {
       setAfficherFormulaire(false);
       setTitre("");
       setDescription("");
-      setCouverture("");
+       setCouverture("");
       setStatut("a_lire");
       setNote("");
       setAvis("");
@@ -108,7 +108,7 @@ function Bibliotheque({ allerVers }) {
 if (!window.confirm("Êtes-vous sûr de vouloir supprimer ce livre ?")) return;
   const data = await supprimerLivre(documentId);
   if (data.erreur) {
-    afficherErreur("Impossible de supprimer le livre");
+     afficherErreur("Impossible de supprimer le livre");
   } else {
     afficherSucces("Livre supprimé !");
     chargerLivres();
@@ -117,7 +117,7 @@ if (!window.confirm("Êtes-vous sûr de vouloir supprimer ce livre ?")) return;
 
    
   async function handleRetirerCollection(livreDocumentId, nouvellesCollections) {
-     await retirerLivreCollection(livreDocumentId, nouvellesCollections);
+      await retirerLivreCollection(livreDocumentId, nouvellesCollections);
      chargerLivres();
   }
 
@@ -129,7 +129,7 @@ if (!window.confirm("Êtes-vous sûr de vouloir supprimer ce livre ?")) return;
     setTitreEdit(livre.titre);
     setDescriptionEdit(livre.description || "");
     setCouvertureEdit(livre.couverture || "");
-    setStatutEdit(livre.statut);
+     setStatutEdit(livre.statut);
     setNoteEdit(livre.note || "");
     setAvisEdit(livre.avis || "");
     setAuteurEditSelectionne(livre.auteur ? livre.auteur.documentId : "");
@@ -160,14 +160,14 @@ if (!window.confirm("Êtes-vous sûr de vouloir supprimer ce livre ?")) return;
       chargerLivres();
       
     } else {
-      afficherErreur("Erreur lors de la modification");
+       afficherErreur("Erreur lors de la modification");
     
     }
   }
 
  
   function handleDeconnexion() {
-    localStorage.removeItem("token");
+     localStorage.removeItem("token");
     localStorage.removeItem("userId");
     allerVers("connexion");
   }
@@ -177,7 +177,7 @@ if (!window.confirm("Êtes-vous sûr de vouloir supprimer ce livre ?")) return;
   // applique tous les filtres le tri d'un coup (recherche, statut, auteur, collection)
   // todo: voir si je peux faire ça coté API avec les filters Strapi plus efficace et bien 
 
-  
+
   const livresFiltres = livres
 
 
@@ -200,13 +200,13 @@ if (!window.confirm("Êtes-vous sûr de vouloir supprimer ce livre ?")) return;
   
     const statutLabel = (s) => {
     if (s === "a_lire") return "À lire";
-    if (s === "en_cours") return "En cours";
+     if (s === "en_cours") return "En cours";
     return "Terminé";
   };
 
   const statutStyle = (s) => {
     if (s === "a_lire") return { background: "#dbeafe", color: "#1d4ed8" };
-    if (s === "en_cours") return { background: "#fef9c3", color: "#a16207" };
+     if (s === "en_cours") return { background: "#fef9c3", color: "#a16207" };
     return { background: "#dcfce7", color: "#15803d" };
   };
 
@@ -216,7 +216,7 @@ if (!window.confirm("Êtes-vous sûr de vouloir supprimer ce livre ?")) return;
     fontWeight: "700",
     fontSize: "14px",
     borderRadius: "6px",
-    cursor: "pointer",
+     cursor: "pointer",
     padding: "7px 16px",
      border: primary ? "none" : "1px solid #d1d5db",
     background: primary ? "#1a1a2e" : "transparent",
@@ -243,7 +243,7 @@ if (!window.confirm("Êtes-vous sûr de vouloir supprimer ce livre ?")) return;
   const inputStyle = {
     width: "100%",
     padding: "10px 12px",
-    border: "1px solid #d1d5db",
+     border: "1px solid #d1d5db",
     borderRadius: "8px",
     fontSize: "14px",
     fontFamily: SERIF,
@@ -282,7 +282,7 @@ if (!window.confirm("Êtes-vous sûr de vouloir supprimer ce livre ?")) return;
         >
          
          
-          <div style={{ background: "white", borderRadius: "14px", padding: "32px", width: "100%", maxWidth: "580px", maxHeight: "85vh", overflowY: "auto", boxShadow: "0 20px 60px rgba(0,0,0,0.3)" }}>
+              <div style={{ background: "white", borderRadius: "14px", padding: "32px", width: "100%", maxWidth: "580px", maxHeight: "85vh", overflowY: "auto", boxShadow: "0 20px 60px rgba(0,0,0,0.3)" }}>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "24px" }}>
               <h3 style={{ fontFamily: SERIF, fontSize: "22px", fontWeight: "800", color: "#1a1a2e", margin: 0 }}>Nouveau livre</h3>
               <button onClick={() => setAfficherFormulaire(false)} style={{ background: "none", border: "none", fontSize: "22px", cursor: "pointer", color: "#9ca3af", lineHeight: 1 }}>×</button>
@@ -363,6 +363,7 @@ if (!window.confirm("Êtes-vous sûr de vouloir supprimer ce livre ?")) return;
                 </div>
               </div>
 
+             
              
              
               <div style={{ display: "flex", gap: "10px" }}>
@@ -471,6 +472,7 @@ if (!window.confirm("Êtes-vous sûr de vouloir supprimer ce livre ?")) return;
 
 
       
+     
       <nav style={{ background: "#fff", borderBottom: "1px solid #e5e7eb" }}>
         <div style={{ padding: isMobile ? "14px 16px" : "0 40px", height: isMobile ? "auto" : "60px", display: "flex", alignItems: "center", justifyContent: isMobile ? "center" : "space-between" }}>
             <span style={{ fontSize: "22px", fontWeight: "800", color: "#1a1a2e", fontFamily: SERIF, letterSpacing: "0.5px" }}>SupBook</span>

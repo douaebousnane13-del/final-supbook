@@ -9,12 +9,12 @@ function useNotification() {
        setTimeout(() => setSucces(""), 3000);
   }
 
-  function afficherErreur(msg) {
+      function afficherErreur(msg) {
 setErreur(msg);
-      setTimeout(() => setErreur(""), 3000);
+         setTimeout(() => setErreur(""), 3000);
   }
     
-            return { succes, erreur, afficherSucces, afficherErreur };
+             return { succes, erreur, afficherSucces, afficherErreur };
 }
 
 export default useNotification;

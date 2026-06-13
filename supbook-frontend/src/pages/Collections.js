@@ -18,7 +18,7 @@ function Collections({ allerVers }) {
   useEffect(() => {
     chargerCollections();
     const handleResize = () => setIsMobile(window.innerWidth < 768);
-    window.addEventListener("resize", handleResize);
+        window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
@@ -28,7 +28,7 @@ function Collections({ allerVers }) {
      setChargement(true);
 const data = await getCollections();
    if (data.data) setCollections(data.data);
-  setChargement(false);
+     setChargement(false);
 }
  
 async function handleAjouterCollection(e) {
@@ -40,9 +40,9 @@ async function handleAjouterCollection(e) {
     const data = await ajouterCollection(nom);
     if (data.data) {
       afficherSucces("Collection créée !");
-      setNom("");
+       setNom("");
       setAfficherFormulaire(false);
-      chargerCollections();
+       chargerCollections();
     } else {
       afficherErreur("Erreur lors de la création");
     }
@@ -52,7 +52,7 @@ async function handleAjouterCollection(e) {
   if (!window.confirm("Êtes-vous sûr de vouloir supprimer cette collection ?")) return;
   const data = await supprimerCollection(documentId);
   if (data.erreur) {
-    afficherErreur("Impossible de supprimer la collection");
+      afficherErreur("Impossible de supprimer la collection");
   } else {
     afficherSucces("Collection supprimée !");
     chargerCollections();
@@ -63,7 +63,7 @@ async function handleAjouterCollection(e) {
     fontFamily: SERIF,
     fontWeight: "700",
     fontSize: "14px",
-    borderRadius: "6px",
+      borderRadius: "6px",
     cursor: "pointer",
     padding: "7px 16px",
     border: primary ? "none" : "1px solid #d1d5db",

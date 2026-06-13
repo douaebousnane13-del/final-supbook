@@ -5,17 +5,17 @@ import { inscrire } from "../services/api";
 
 
 function Inscription({ allerVers }) {
-  const [nom, setNom] = useState("");
+   const [nom, setNom] = useState("");
    const [email, setEmail] = useState("");
   const [motDePasse, setMotDePasse] = useState("");
   const [erreur, setErreur] = useState("");
-  const [succes, setSucces] = useState(false);
+   const [succes, setSucces] = useState(false);
   const [chargement, setChargement] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   
   
-  useEffect(() => {
+   useEffect(() => {
   const handleResize = () => setIsMobile(window.innerWidth < 768);
     window.addEventListener("resize", handleResize);
     
@@ -114,7 +114,7 @@ function Inscription({ allerVers }) {
         <p style={{ textAlign: "center", marginTop: "24px", fontSize: "14px", color: "#6b7280" }}>
           Déjà un compte ?{" "}
           <span
-            onClick={() => allerVers("connexion")}
+                onClick={() => allerVers("connexion")}
             style={{ color: "#1a1a2e", fontWeight: "700", cursor: "pointer", textDecoration: "underline" }}
           >
             Se connecter

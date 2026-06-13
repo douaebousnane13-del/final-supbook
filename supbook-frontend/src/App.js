@@ -9,7 +9,7 @@ import Collections from "./pages/Collections";
 
 
 function App() {
-      const [page, setPage] = useState(
+        const [page, setPage] = useState(
        localStorage.getItem("token") ? "bibliotheque" : "connexion"
   );
 
@@ -33,7 +33,7 @@ return <Auteurs allerVers={allerVers} />;
   }
 
   if (page === "collections" && localStorage.getItem("token")) {
-      return <Collections allerVers={allerVers} />;
+       return <Collections allerVers={allerVers} />;
   }
 
   if (page === "bibliotheque" && localStorage.getItem("token")) {
